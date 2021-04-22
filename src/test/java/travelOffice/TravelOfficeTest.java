@@ -46,12 +46,15 @@ class TravelOfficeTest {
     }
 
     @Test
-    public void shouldAddTrip(){
+    public void shouldAddTrip() {
         //given
-
+        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
         //when
-
+        travelOffice.addTrip(trip);
         //then
+        Assertions.assertTrue(travelOffice.findTripByName("Gdansk").equals(trip));
     }
+
+
 
 }
