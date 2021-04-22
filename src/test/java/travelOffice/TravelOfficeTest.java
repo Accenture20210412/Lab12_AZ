@@ -38,7 +38,7 @@ class TravelOfficeTest {
     public void shouldAddTripToCustomer() {
         //given
         Customer customer = new Customer("Kuba", "Nowak", "Katowice");
-        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        Trip trip = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
         //when
         travelOffice.addTripToCustomer(customer, trip);
         //then
@@ -48,23 +48,35 @@ class TravelOfficeTest {
     @Test
     public void shouldAddTrip() {
         //given
-        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        Trip trip = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
         //when
         travelOffice.addTrip(trip);
         //then
-        Assertions.assertTrue(travelOffice.findTripByName("Gdansk").equals(trip));
+        Assertions.assertTrue(travelOffice.findTripByName("Baltyk").equals(trip));
     }
 
     @Test
     public void shouldFindTripByName() {
         //given
-        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        Trip trip = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
         travelOffice.addTrip(trip);
         //when
-        travelOffice.findTripByName("Gdansk");
+        travelOffice.findTripByName("Baltyk");
         //then
         Assertions.assertEquals(travelOffice.findTripsByDestination("Gdansk").get(0), trip);
     }
+
+    @Test
+    public void shouldFindTripsByDestination(){
+        //given
+        Trip trip = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        travelOffice.addTrip(trip);
+        //when
+        travelOffice.findTripsByDestination("Gdansk");
+        //then
+        Assertions.assertEquals(travelOffice.findTripByName("Baltyk"), trip);
+    }
+
 
 
 }
