@@ -9,8 +9,8 @@ public class AbroadTrip extends Trip{
         return getInsurance() + getPrice();
     }
 
-    public AbroadTrip(LocalDate start, LocalDate finish, String destination, int price, int insurance) {
-        super(start, finish, destination, price);
+    public AbroadTrip(String name, LocalDate start, LocalDate finish, String destination, int price, int insurance) {
+        super(name, start, finish, destination, price);
         this.insurance = insurance;
     }
 

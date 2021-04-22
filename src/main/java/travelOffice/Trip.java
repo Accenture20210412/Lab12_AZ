@@ -3,10 +3,19 @@ package travelOffice;
 import java.time.LocalDate;
 
 public class Trip {
+    private String name;
     private LocalDate start;
     private LocalDate finish;
     private String destination;
     private int price;
+
+    public Trip(String name, LocalDate start, LocalDate finish, String destination, int price) {
+        this.name = name;
+        this.start = start;
+        this.finish = finish;
+        this.destination = destination;
+        this.price = price;
+    }
 
     @Override
     public String toString() {
@@ -17,13 +26,7 @@ public class Trip {
         return info;
     }
 
-    public Trip(LocalDate start, LocalDate finish, String destination, int price) {
-        this.start = start;
-        this.finish = finish;
-        this.destination = destination;
-        this.price = price;
-    }
-
+    public String getName() { return name; }
     public LocalDate getStart() {
         return start;
     }
@@ -39,6 +42,8 @@ public class Trip {
     public int getPrice() {
         return price;
     }
+
+    public void setName(String name) { this.name = name; }
 
     public void setStart(LocalDate start) {
         this.start = start;
