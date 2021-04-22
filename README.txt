@@ -1,3 +1,6 @@
+Aplikacja: Agnieszka Ząbkowicz
+Testy: Kuba Dutkiewicz
+
 Metoda deleteCustomersByName w klasie TravelOffice:
 zwraca liczbę usuniętych klientów, by rozróżnić przypadki
 gdy nie został usunięty żaden, został usunięty jeden, 
