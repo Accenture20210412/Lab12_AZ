@@ -3,6 +3,8 @@ package travelOffice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,24 @@ class TravelOfficeTest {
         Assertions.assertFalse(customers.contains(customer));
     }
 
+    @Test
+    public void shouldAddTripToCustomer() {
+        //given
+        Customer customer = new Customer("Kuba", "Nowak", "Katowice");
+        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        //when
+        travelOffice.addTripToCustomer(customer, trip);
+        //then
+        Assertions.assertTrue(customer.getTrip().getDestination().equalsIgnoreCase("Gdansk"));
+    }
 
+    @Test
+    public void shouldAddTrip(){
+        //given
+
+        //when
+
+        //then
+    }
 
 }
