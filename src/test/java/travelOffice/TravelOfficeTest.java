@@ -55,6 +55,16 @@ class TravelOfficeTest {
         Assertions.assertTrue(travelOffice.findTripByName("Gdansk").equals(trip));
     }
 
+    @Test
+    public void shouldFindTripByName() {
+        //given
+        Trip trip = new Trip("Gdansk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
+        travelOffice.addTrip(trip);
+        //when
+        travelOffice.findTripByName("Gdansk");
+        //then
+        Assertions.assertEquals(travelOffice.findTripsByDestination("Gdansk").get(0), trip);
+    }
 
 
 }
