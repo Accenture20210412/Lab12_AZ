@@ -67,7 +67,7 @@ class TravelOfficeTest {
     }
 
     @Test
-    public void shouldFindTripsByDestination(){
+    public void shouldFindTripsByDestination() {
         //given
         Trip trip = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 5000);
         travelOffice.addTrip(trip);
@@ -75,6 +75,21 @@ class TravelOfficeTest {
         travelOffice.findTripsByDestination("Gdansk");
         //then
         Assertions.assertEquals(travelOffice.findTripByName("Baltyk"), trip);
+    }
+
+    @Test
+    public void shouldFindTripsAfter() {
+        //given
+        Trip trip1 = new Trip("Baltyk", LocalDate.parse("2021-07-01"), LocalDate.parse("2021-07-15"), "Gdansk", 2000);
+        Trip trip2 = new Trip("Gory", LocalDate.parse("2021-05-01"), LocalDate.parse("2021-05-15"), "Zakopane", 3000);
+        Trip trip3 = new Trip("Mazury", LocalDate.parse("2021-08-01"), LocalDate.parse("2021-08-15"), "Mragowo", 4000);
+        travelOffice.addTrip(trip1);
+        travelOffice.addTrip(trip2);
+        travelOffice.addTrip(trip3);
+        //when
+        List<Trip> tripsAfter = travelOffice.findTripsAfter(LocalDate.parse("2021-06-30"));
+        //then
+        Assertions.assertTrue(tripsAfter.size() == 2);
     }
 
 
